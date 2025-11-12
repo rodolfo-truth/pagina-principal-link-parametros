@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Parâmetros de Impressão — Quanton3D</title>
+  <link rel="icon" href="data:,"><!-- evita 404 do favicon -->
+
+  <!-- ====== FONT: Mont (troque o src pelo seu arquivo real) ====== -->
+  <style>
+    @font-face{
+      font-family:"Mont";
+      src:url("./Mont-Regular.woff2") format("woff2");
+      font-weight:400; font-style:normal; font-display:swap;
+    }
+    @font-face{
+      font-family:"Mont";
+      src:url("./Mont-Bold.woff2") format("woff2");
+      font-weight:700; font-style:normal; font-display:swap;
+    }
+
+    :root{
+      --bg:#000898;
+      --white:#fff;
+      --muted:rgba(255,255,255,.85);
+      --cta:#7A2FFF;         /* base violeta do botão */
+      --cta-2:#A04BFF;       /* gradiente opcional   */
+      --cta-shadow:rgba(0,0,0,.35);
+      --radius:16px;
+      --stage-w:1200px;      /* largura do “palco” onde os lotties ficam */
+      --stage-h:560px;       /* altura do palco                          */
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:var(--bg); color:var(--white);
+      font-family:"Mont","Montserrat",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* ====== HERO (título, texto, imagem, botão) ====== */
+    .hero{
+      width:100%; height:100%;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      padding:56px 16px 32px;
+      text-align:center;
+    }
+    .hero h1{
+      margin:0 0 12px; line-height:1.05;
+      font-weight:800; letter-spacing:.4px;
+      font-size:clamp(28px,4.5vw,56px);
+      text-transform:uppercase;
+    }
+    .hero p{
+      max-width:760px; margin:0 auto 28px;
+      font-size:clamp(14px,1.6vw,18px);
+      color:var(--muted);
+    }
+
+    /* container do palco (lotties ficam absolutos aqui em cima da imagem) */
+    .stage-wrap{
+      position:relative; width:100%; display:flex; justify-content:center; align-items:center;
+      margin:8px auto 28px;
+    }
+    #stage{
+      position:relative;
+      width:var(--stage-w); height:var(--stage-h);
+      margin:0 auto;
+    }
+
+    /* imagem central (troque o src no HTML) */
+    .hero-figure{
+      position:absolute; left:50%; top:50%;
+      transform:translate(-50%,-50%);
+      width: min(38vw, 420px); /* responde um pouco no desktop */
+      max-width: 520px;
+      filter: drop-shadow(0 28px 60px rgba(0,0,0,.45));
+      pointer-events:none; /* imagem “decorativa” por cima do palco */
+    }
+
+    /* botão como <a> */
+    .btn-cta{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:16px 28px; border-radius:var(--radius);
+      font-weight:800; letter-spacing:.4px; text-transform:uppercase;
+      color:#fff; background:linear-gradient(180deg,var(--cta),var(--cta-2));
+      box-shadow:0 12px 24px var(--cta-shadow), inset 0 -2px 0 rgba(255,255,255,.12);
+      transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
+      text-decoration:none; cursor:pointer; user-select:none;
+    }
+    .btn-cta:hover{ transform:translateY(-1px); filter:saturate(1.05) }
+    .btn-cta:active{ transform:translateY(0); box-shadow:0 6px 16px var(--cta-shadow) }
+
+    /* base dos lotties */
+    .lottie-box{
+      position:absolute; pointer-events:auto; transform:translateZ(0);
+    }
+
+    /* responsividade leve: você pode adicionar escala do palco se quiser */
+    @media (max-width: 1280px){
+      #stage{ transform-origin:center top; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== HERO ====== -->
+  <section class="hero" aria-labelledby="hero-title">
+    <h1 id="hero-title">Parâmetros de Impressão</h1>
+    <p>
+      A Quanton3D, por meio de rigorosos testes com suas resinas e as principais impressoras do mercado,
+      desenvolveu os melhores parâmetros iniciais para garantir uma experiência de impressão excepcional para você.
+    </p>
+
+    <!-- Palco central: lotties + sua imagem no centro -->
+    <div class="stage-wrap">
+      <div id="stage" aria-label="Palco de animações">
+        <!-- sua imagem central (troque o src) -->
+        <img class="hero-figure" src="./parametros-sem-BG.png" alt=" decorImpressora 3Dativa">
+      </div>
+    </div>
+
+    <!-- AGORA É <a> -->
+    <a class="btn-cta" href="#iniciar">Iniciar Parametrização</a>
+  </section>
+
+  <!-- Lottie -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+  <script>
+    /**
+     * Helper: injeta container posicionado dentro do #stage e carrega JSON local
+     */
+    async function mountLottie({
+      id, jsonPath, left, top, width, height, zIndex,
+      loop = true, autoplay = true, renderer = 'svg'
+    }) {
+      const stage = document.getElementById('stage');
+      const el = document.createElement('div');
+      el.id = id;
+      el.className = 'lottie-box';
+      Object.assign(el.style, {
+        left: left + 'px',
+        top:  top + 'px',
+        width: width + 'px',
+        height: height + 'px',
+        zIndex: zIndex
+      });
+      stage.appendChild(el);
+
+      const resp = await fetch(jsonPath);
+      if (!resp.ok) throw new Error('Falha ao carregar ' + jsonPath);
+      const animationData = await resp.json();
+
+      const anim = lottie.loadAnimation({
+        container: el,
+        renderer,
+        loop,
+        autoplay,
+        animationData
+      });
+      anim.addEventListener('DOMLoaded', () => console.log('[OK]', id));
+      return anim;
+    }
+
+    // === Config das 6 animações (coordenadas equivalentes ao seu slider) ===
+    const animations = [
+      // 1) Átomo
+      { id:'lottie-atomo', jsonPath:'./atomo.json', left:356, top:400, width:80,  height:80,  zIndex:11 },
+
+      // 2) Gráfico escala (vertical)
+      { id:'lottie-grafico', jsonPath:'./grafico.json', left:293, top:256, width:200, height:101, zIndex:10 },
+
+      // 3) Gráfico horizontal com ponteiro
+      { id:'lottie-ponteiro', jsonPath:'./grafico_ponteiro.json', left:286, top:132, width:200, height:100, zIndex:15 },
+
+      // 4) Círculo radar
+      { id:'lottie-radar', jsonPath:'./circulo_radar.json', left:685, top:109, width:240, height:165, zIndex:12 },
+
+      // 5) Cubo parâmetros
+      { id:'lottie-cubo', jsonPath:'./cubo.json', left:724, top:367, width:100, height:100, zIndex:13 },
+
+      // 6) Luz UV parâmetros
+      { id:'lottie-luzuv', jsonPath:'./luz_uv.json', left:718, top:234, width:140, height:140, zIndex:14 },
+    ];
+
+    // inicializa todas
+    (async () => {
+      try {
+        await Promise.all(animations.map(cfg => mountLottie(cfg)));
+      } catch (e) {
+        console.error(e);
+      }
+    })();
+  </script>
+</body>
+</html>
