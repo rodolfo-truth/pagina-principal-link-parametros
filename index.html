@@ -101,6 +101,109 @@
     @media (max-width: 1280px){
       #stage{ transform-origin:center top; }
     }
+
+    /* ====== MOBILE RESPONSIVO ====== */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 32px 16px;
+        min-height: 100vh;
+        justify-content: flex-start;
+        padding-top: 40px;
+      }
+
+      .hero h1 {
+        font-size: clamp(24px, 7vw, 40px);
+        margin: 0 0 16px;
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: clamp(13px, 3.5vw, 16px);
+        margin: 0 auto 24px;
+        line-height: 1.6;
+        max-width: 100%;
+        padding: 0 8px;
+      }
+
+      .stage-wrap {
+        width: 100%;
+        height: auto;
+        margin: 16px auto 24px;
+        aspect-ratio: 1 / 1;
+        max-height: 450px;
+      }
+
+      #stage {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100%;
+        position: relative;
+      }
+
+      .hero-figure {
+        width: 65% !important;
+        max-width: 300px !important;
+        filter: drop-shadow(0 16px 40px rgba(0,0,0,.5));
+      }
+
+      .btn-cta {
+        padding: 15px 30px;
+        font-size: 20px;
+      }
+
+      /* Ajuste das posições dos SVGs para mobile */
+      .lottie-box {
+        transform: scale(0.7) translateZ(0) !important;
+        transform-origin: center center !important;
+      }
+
+      /* Posições dos SVGs em mobile - centralizadas */
+      #lottie-atomo {
+        left: 5% !important;
+        top: 65% !important;
+        transform: scale(0.6) translateZ(0) !important;
+      }
+
+      #lottie-grafico {
+        left: 0% !important;
+        top: 40% !important;
+        transform: scale(0.6) translateZ(0) !important;
+        width: 140px !important;
+        height: 80px !important;
+      }
+
+      #lottie-ponteiro {
+        left: 0% !important;
+        top: 20% !important;
+        transform: scale(0.5) translateZ(0) !important;
+        width: 150px !important;
+        height: 75px !important;
+      }
+
+      #lottie-radar {
+        left: 65% !important;
+        top: 17% !important;
+        transform: scale(0.5) translateZ(0) !important;
+        width: 150px !important;
+        height: 110px !important;
+      }
+
+      #lottie-cubo {
+        left: 75% !important;
+        top: 65% !important;
+        transform: scale(0.55) translateZ(0) !important;
+        width: 70px !important;
+        height: 70px !important;
+      }
+
+      #lottie-luzuv {
+        left: 70% !important;
+        top: 38% !important;
+        transform: scale(0.5) translateZ(0) !important;
+        width: 100px !important;
+        height: 100px !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -166,22 +269,22 @@
     // === Config das 6 animações (coordenadas equivalentes ao seu slider) ===
     const animations = [
       // 1) Átomo
-      { id:'lottie-atomo', jsonPath:'./atomo.json', left:356, top:400, width:80,  height:80,  zIndex:11 },
+      { id:'lottie-atomo', jsonPath:'https://res.cloudinary.com/dojind78c/raw/upload/v1762960290/atomo_dc6jma.json', left:356, top:400, width:80,  height:80,  zIndex:11 },
 
       // 2) Gráfico escala (vertical)
-      { id:'lottie-grafico', jsonPath:'./grafico.json', left:293, top:256, width:200, height:101, zIndex:10 },
+      { id:'lottie-grafico', jsonPath:'https://res.cloudinary.com/dojind78c/raw/upload/v1762964982/grafico_ps5owc.json', left:293, top:256, width:200, height:101, zIndex:10 },
 
       // 3) Gráfico horizontal com ponteiro
-      { id:'lottie-ponteiro', jsonPath:'./grafico_ponteiro.json', left:286, top:132, width:200, height:100, zIndex:15 },
+      { id:'lottie-ponteiro', jsonPath:'https://res.cloudinary.com/dojind78c/raw/upload/v1762964982/grafico_ponteiro_hur9t1.json', left:286, top:132, width:200, height:100, zIndex:15 },
 
       // 4) Círculo radar
-      { id:'lottie-radar', jsonPath:'./circulo_radar.json', left:685, top:109, width:240, height:165, zIndex:12 },
+      { id:'lottie-radar', jsonPath:'https://res.cloudinary.com/dojind78c/raw/upload/v1762964982/circulo_radar_xpypzs.json', left:685, top:109, width:240, height:165, zIndex:12 },
 
       // 5) Cubo parâmetros
-      { id:'lottie-cubo', jsonPath:'./cubo.json', left:724, top:367, width:100, height:100, zIndex:13 },
+      { id:'lottie-cubo', jsonPath:'https://res.cloudinary.com/dojind78c/raw/upload/v1762964982/cubo_f2ydrv.json', left:724, top:367, width:100, height:100, zIndex:13 },
 
       // 6) Luz UV parâmetros
-      { id:'lottie-luzuv', jsonPath:'./luz_uv.json', left:718, top:234, width:140, height:140, zIndex:14 },
+      { id:'lottie-luzuv', jsonPath:'https://res.cloudinary.com/dojind78c/raw/upload/v1762964982/luz_uv_cyahi1.json', left:718, top:234, width:140, height:140, zIndex:14 },
     ];
 
     // inicializa todas
