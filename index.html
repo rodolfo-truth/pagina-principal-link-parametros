@@ -20,57 +20,57 @@
     }
 
     :root{
-      --bg:#000898;
-      --white:#fff;
-      --muted:rgba(255,255,255,.85);
-      --cta:#7A2FFF;         /* base violeta do botão */
-      --cta-2:#A04BFF;       /* gradiente opcional   */
-      --cta-shadow:rgba(0,0,0,.35);
-      --radius:16px;
-      --stage-w:1200px;      /* largura do “palco” onde os lotties ficam */
-      --stage-h:560px;       /* altura do palco                          */
+      --bg-quanton3d:#000898;
+      --white-quanton3d:#fff;
+      --muted-quanton3d:rgba(255,255,255,.85);
+      --cta-quanton3d:#7A2FFF;         /* base violeta do botão */
+      --cta-2-quanton3d:#A04BFF;       /* gradiente opcional   */
+      --cta-shadow-quanton3d:rgba(0,0,0,.35);
+      --radius-quanton3d:16px;
+      --stage-w-quanton3d:1200px;      /* largura do “palco” onde os lotties ficam */
+      --stage-h-quanton3d:560px;       /* altura do palco                          */
     }
 
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; background:var(--bg); color:var(--white);
+    .site-quanton3d{height:100%}
+    .site-quanton3d{
+      margin:0; background:var(--bg-quanton3d); color:var(--white-quanton3d);
       font-family:"Mont","Montserrat",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
 
     /* ====== HERO (título, texto, imagem, botão) ====== */
-    .hero{
+    .hero-quanton3d{
       width:100%; height:100%;
       display:flex; flex-direction:column; align-items:center; justify-content:center;
       padding:56px 16px 32px;
       text-align:center;
     }
-    .hero h1{
+    .hero-quanton3d h1{
       margin:0 0 12px; line-height:1.05;
       font-weight:800; letter-spacing:.4px;
       font-size:clamp(28px,4.5vw,56px);
       text-transform:uppercase;
     }
-    .hero p{
+    .hero-quanton3d p{
       max-width:760px; margin:0 auto 28px;
       font-size:clamp(14px,1.6vw,18px);
-      color:var(--muted);
+      color:var(--muted-quanton3d);
     }
 
     /* container do palco (lotties ficam absolutos aqui em cima da imagem) */
-    .stage-wrap{
+    .stage-wrap-quanton3d{
       position:relative; width:100%; display:flex; justify-content:center; align-items:center;
       margin:8px auto 28px;
     }
     #stage{
       position:relative;
-      width:var(--stage-w); height:var(--stage-h);
+      width:var(--stage-w-quanton3d); height:var(--stage-h-quanton3d);
       margin:0 auto;
     }
 
     /* imagem central (troque o src no HTML) */
-    .hero-figure{
+    .hero-figure-quanton3d{
       position:absolute; left:50%; top:50%;
       transform:translate(-50%,-50%);
       width: min(38vw, 420px); /* responde um pouco no desktop */
@@ -80,20 +80,20 @@
     }
 
     /* botão como <a> */
-    .btn-cta{
+    .btn-cta-quanton3d{
       display:inline-flex; align-items:center; justify-content:center;
-      padding:16px 28px; border-radius:var(--radius);
+      padding:16px 28px; border-radius:var(--radius-quanton3d);
       font-weight:800; letter-spacing:.4px; text-transform:uppercase;
-      color:#fff; background:linear-gradient(180deg,var(--cta),var(--cta-2));
-      box-shadow:0 12px 24px var(--cta-shadow), inset 0 -2px 0 rgba(255,255,255,.12);
+      color:#fff; background:linear-gradient(180deg,var(--cta-quanton3d),var(--cta-2-quanton3d));
+      box-shadow:0 12px 24px var(--cta-shadow-quanton3d), inset 0 -2px 0 rgba(255,255,255,.12);
       transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
       text-decoration:none; cursor:pointer; user-select:none;
     }
-    .btn-cta:hover{ transform:translateY(-1px); filter:saturate(1.05) }
-    .btn-cta:active{ transform:translateY(0); box-shadow:0 6px 16px var(--cta-shadow) }
+    .btn-cta-quanton3d:hover{ transform:translateY(-1px); filter:saturate(1.05) }
+    .btn-cta-quanton3d:active{ transform:translateY(0); box-shadow:0 6px 16px var(--cta-shadow-quanton3d) }
 
     /* base dos lotties */
-    .lottie-box{
+    .lottie-box-quanton3d{
       position:absolute; pointer-events:auto; transform:translateZ(0);
     }
 
@@ -104,28 +104,30 @@
 
     /* ====== MOBILE RESPONSIVO ====== */
     @media (max-width: 768px) {
-      .hero {
+      .hero-quanton3d {
         padding: 32px 16px;
         min-height: 100vh;
         justify-content: flex-start;
         padding-top: 40px;
       }
 
-      .hero h1 {
+      .hero-quanton3d h1 {
         font-size: clamp(24px, 7vw, 40px);
         margin: 0 0 16px;
         line-height: 1.2;
+        text-align: center;
       }
 
-      .hero p {
+      .hero-quanton3d p {
         font-size: clamp(13px, 3.5vw, 16px);
         margin: 0 auto 24px;
         line-height: 1.6;
         max-width: 100%;
         padding: 0 8px;
+        text-align: center;
       }
 
-      .stage-wrap {
+      .stage-wrap-quanton3d {
         width: 100%;
         height: auto;
         margin: 16px auto 24px;
@@ -140,49 +142,49 @@
         position: relative;
       }
 
-      .hero-figure {
-        width: 65% !important;
-        max-width: 300px !important;
+      .hero-figure-quanton3d {
+        width: 75% !important;
+        max-width: 340px !important;
         filter: drop-shadow(0 16px 40px rgba(0,0,0,.5));
       }
 
-      .btn-cta {
+      .btn-cta-quanton3d {
         padding: 15px 30px;
-        font-size: 20px;
+        font-size: clamp(14px, 3.2vw, 16px);
       }
 
       /* Ajuste das posições dos SVGs para mobile */
-      .lottie-box {
+      .lottie-box-quanton3d {
         transform: scale(0.7) translateZ(0) !important;
         transform-origin: center center !important;
       }
 
       /* Posições dos SVGs em mobile - centralizadas */
       #lottie-atomo {
-        left: 5% !important;
-        top: 65% !important;
+        left: 45% !important;
+        top: 60% !important;
         transform: scale(0.6) translateZ(0) !important;
       }
 
       #lottie-grafico {
-        left: 0% !important;
-        top: 40% !important;
+        left: 50% !important;
+        top: 25% !important;
         transform: scale(0.6) translateZ(0) !important;
         width: 140px !important;
-        height: 80px !important;
+        height: 70px !important;
       }
 
       #lottie-ponteiro {
-        left: 0% !important;
-        top: 20% !important;
+        left: 50% !important;
+        top: 8% !important;
         transform: scale(0.5) translateZ(0) !important;
-        width: 150px !important;
-        height: 75px !important;
+        width: 140px !important;
+        height: 70px !important;
       }
 
       #lottie-radar {
-        left: 65% !important;
-        top: 17% !important;
+        left: 72% !important;
+        top: 15% !important;
         transform: scale(0.5) translateZ(0) !important;
         width: 150px !important;
         height: 110px !important;
@@ -198,7 +200,7 @@
 
       #lottie-luzuv {
         left: 70% !important;
-        top: 38% !important;
+        top: 42% !important;
         transform: scale(0.5) translateZ(0) !important;
         width: 100px !important;
         height: 100px !important;
@@ -206,10 +208,10 @@
     }
   </style>
 </head>
-<body>
+<body class="site-quanton3d">
 
   <!-- ====== HERO ====== -->
-  <section class="hero" aria-labelledby="hero-title">
+  <section class="hero-quanton3d" aria-labelledby="hero-title">
     <h1 id="hero-title">Parâmetros de Impressão</h1>
     <p>
       A Quanton3D, por meio de rigorosos testes com suas resinas e as principais impressoras do mercado,
@@ -217,15 +219,15 @@
     </p>
 
     <!-- Palco central: lotties + sua imagem no centro -->
-    <div class="stage-wrap">
+    <div class="stage-wrap-quanton3d">
       <div id="stage" aria-label="Palco de animações">
         <!-- sua imagem central (troque o src) -->
-        <img class="hero-figure" src="./parametros-sem-BG.png" alt=" decorImpressora 3Dativa">
+        <img class="hero-figure-quanton3d" src="./parametros-sem-BG.png" alt=" decorImpressora 3Dativa">
       </div>
     </div>
 
     <!-- AGORA É <a> -->
-    <a class="btn-cta" href="#iniciar">Iniciar Parametrização</a>
+    <a class="btn-cta-quanton3d" href="https://quanton3d.lojavirtualnuvem.com.br/parametrosdeimpressao/">Iniciar Parametrização</a>
   </section>
 
   <!-- Lottie -->
@@ -239,9 +241,9 @@
       loop = true, autoplay = true, renderer = 'svg'
     }) {
       const stage = document.getElementById('stage');
-      const el = document.createElement('div');
-      el.id = id;
-      el.className = 'lottie-box';
+  const el = document.createElement('div');
+  el.id = id;
+  el.className = 'lottie-box-quanton3d';
       Object.assign(el.style, {
         left: left + 'px',
         top:  top + 'px',
