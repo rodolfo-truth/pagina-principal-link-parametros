@@ -8,16 +8,6 @@
 
   <!-- ====== FONT: Mont (troque o src pelo seu arquivo real) ====== -->
   <style>
-    @font-face{
-      font-family:"Mont";
-      src:url("./Mont-Regular.woff2") format("woff2");
-      font-weight:400; font-style:normal; font-display:swap;
-    }
-    @font-face{
-      font-family:"Mont";
-      src:url("./Mont-Bold.woff2") format("woff2");
-      font-weight:700; font-style:normal; font-display:swap;
-    }
 
     :root{
       --bg-quanton3d:#000898;
@@ -31,7 +21,6 @@
       --stage-h-quanton3d:560px;       /* altura do palco                          */
     }
 
-    *{box-sizing:border-box}
     .site-quanton3d{height:100%}
     .site-quanton3d{
       margin:0; background:var(--bg-quanton3d); color:var(--white-quanton3d);
@@ -45,6 +34,7 @@
       display:flex; flex-direction:column; align-items:center; justify-content:center;
       padding:56px 16px 32px;
       text-align:center;
+      box-sizing: border-box;
     }
     .hero-quanton3d h1{
       margin:0 0 12px; line-height:1.05;
@@ -161,29 +151,30 @@
 
       /* Posições dos SVGs em mobile - centralizadas */
       #lottie-atomo {
-        left: 45% !important;
+        left: 8% !important;
         top: 60% !important;
         transform: scale(0.6) translateZ(0) !important;
       }
 
       #lottie-grafico {
-        left: 50% !important;
-        top: 25% !important;
+        left: 0% !important;
+        top: 38% !important;
         transform: scale(0.6) translateZ(0) !important;
         width: 140px !important;
         height: 70px !important;
       }
 
       #lottie-ponteiro {
-        left: 50% !important;
-        top: 8% !important;
+        left: 0% !important;
+        top: 17% !important;
         transform: scale(0.5) translateZ(0) !important;
         width: 140px !important;
         height: 70px !important;
+
       }
 
       #lottie-radar {
-        left: 72% !important;
+        left: 62% !important;
         top: 15% !important;
         transform: scale(0.5) translateZ(0) !important;
         width: 150px !important;
@@ -191,8 +182,8 @@
       }
 
       #lottie-cubo {
-        left: 75% !important;
-        top: 65% !important;
+        left: 74% !important;
+        top: 60% !important;
         transform: scale(0.55) translateZ(0) !important;
         width: 70px !important;
         height: 70px !important;
@@ -200,7 +191,7 @@
 
       #lottie-luzuv {
         left: 70% !important;
-        top: 42% !important;
+        top: 36% !important;
         transform: scale(0.5) translateZ(0) !important;
         width: 100px !important;
         height: 100px !important;
